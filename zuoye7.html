@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js的应用</title>
+		<style>
+			button{border: none;
+			width: 60px;
+			height: 40px;
+			background: aquamarine;
+			text-align: center;
+			margin: 0 50px 0 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1" style="width: 90%;margin-left: 100px;height: 200px;">
+			<p id="mypcopy" style="width: 200px;height: 40px;background: aqua;display: none;">这是一个p元素</p>
+			<p id="myp" style="width: 200px;height: 40px;background: aqua;">这是一个p元素</p>
+		</div>
+		<div style="display: flex;display: -webkit-flex;flex-direction: row; width: 80%; height: 70px; margin-left: 100px;">
+			<button onclick="delp()">删除p元素</button>
+			<button id="addp" onclick="addp()">添加p元素</button>
+		</div>
+		<div id="div2" style="width: 90%;margin-left: 100px;height: 200px;">
+			<a id="mya" href="www.baidu.com">这是一个a元素,指向百度</a>
+		</div>
+		<div style="display: flex;display: -webkit-flex;flex-direction: row; width: 80%; height: 70px; margin-left: 100px;">
+			<button id="dela" onclick="dela()">删除a元素</button>
+			<button id="adda" onclick="adda()">添加a元素</button>
+		</div>
+		<script>
+				function delp(){
+					var parent=document.getElementById("div1");
+					var chil = document.getElementsByTagName("p")[0];
+					parent.removeChild(chil);
+				}
+				function addp(){
+					var parent=document.getElementById("div1");
+					var child=document.createElement("p");
+					var node=document.createTextNode("这是新段落。");
+					child.appendChild(node);
+					parent.appendChild(child);
+				}
+				function dela(){
+					var parent=document.getElementById("div2");
+					var chil = document.getElementsByTagName("a")[0];
+					parent.removeChild(chil);
+				}
+				function adda(){
+					var parent=document.getElementById("div2");
+					var child=document.createElement("a");
+					var node=document.createTextNode("这是新链接。");
+					child.setAttribute("href","www.taobao.com");
+					child.appendChild(node);
+					parent.appendChild(child);
+				}
+		</script>
+	</body>
+</html>
